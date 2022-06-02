@@ -15,8 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
-public class FixedDepositAccountWriter extends FlatFileItemWriter<FixedDepositAccount> {
-    public FixedDepositAccountWriter(){
+public class FixedDepositAccountCSVWriter extends FlatFileItemWriter<FixedDepositAccount> {
+    public FixedDepositAccountCSVWriter(){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String stringDate = sdf.format(new Date());
 

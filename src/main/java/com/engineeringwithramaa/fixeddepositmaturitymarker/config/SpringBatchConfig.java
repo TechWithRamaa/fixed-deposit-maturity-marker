@@ -1,7 +1,7 @@
 package com.engineeringwithramaa.fixeddepositmaturitymarker.config;
 
 import com.engineeringwithramaa.fixeddepositmaturitymarker.batch.FixedDepositAccountReader;
-import com.engineeringwithramaa.fixeddepositmaturitymarker.batch.FixedDepositAccountWriter;
+import com.engineeringwithramaa.fixeddepositmaturitymarker.batch.FixedDepositAccountCSVWriter;
 import com.engineeringwithramaa.fixeddepositmaturitymarker.entity.FixedDepositAccount;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -22,14 +22,14 @@ public class SpringBatchConfig {
     @Autowired
     FixedDepositAccountReader fixedDepositAccountReader;
     @Autowired
-    FixedDepositAccountWriter fixedDepositAccountWriter;
+    FixedDepositAccountCSVWriter fixedDepositAccountCSVWriter;
 
     @Bean
     public Step fixedDepositAccountStep() {
         return stepBuilderFactory.get("Fixed Deposit Account Step")
                 .<FixedDepositAccount, FixedDepositAccount> chunk(10)
                 .reader(fixedDepositAccountReader)
-                .writer(fixedDepositAccountWriter)
+                .writer(fixedDepositAccountCSVWriter)
                 .build();
     }
 
