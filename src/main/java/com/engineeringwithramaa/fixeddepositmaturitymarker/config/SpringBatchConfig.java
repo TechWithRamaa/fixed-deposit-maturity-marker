@@ -33,7 +33,7 @@ public class SpringBatchConfig {
     @Bean
     public Step fixedDepositAccountStep() {
         return stepBuilderFactory.get("Fixed Deposit Account Step")
-                .<FixedDepositAccount, FixedDepositAccount> chunk(10)
+                .<FixedDepositAccount, FixedDepositAccount> chunk(100)
                 .reader(fixedDepositAccountReader)
                 .processor(fixedDepositMaturityMarkerProcessor)
                 .writer(fixedDepositAccountDBWriter)

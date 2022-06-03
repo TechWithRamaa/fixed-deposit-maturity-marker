@@ -9,8 +9,15 @@ public class FixedDepositMaturityMarkerProcessor implements ItemProcessor<FixedD
 
     @Override
     public FixedDepositAccount process(FixedDepositAccount fdAccount) throws Exception {
+
+        // Calculate Fixed Deposit Matured Amount using standarized formula
+        // Adding 10000 just for simplicity
+        int fixedDepositMaturedAmount = fdAccount.getDepositAmount() + 10000;
+
+        // Updating Matured Amount and setting the flag Matured to TRUE
+        fdAccount.setMaturedAmount(fixedDepositMaturedAmount);
         fdAccount.setMatured(true);
-        //System.out.println(fdAccount.toString());
+
         return fdAccount;
     }
 }

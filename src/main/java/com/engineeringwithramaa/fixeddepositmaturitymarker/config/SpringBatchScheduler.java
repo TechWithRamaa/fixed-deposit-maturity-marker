@@ -23,6 +23,7 @@ public class SpringBatchScheduler {
 
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 
+    //@Scheduled(cron = "0 41 5 2 ? ?")
     @Scheduled(initialDelay = 1000 * 30, fixedDelay=Long.MAX_VALUE)
     public void scheduleByFixedRate() throws Exception {
         System.out.println("************    Batch job starting    *************");

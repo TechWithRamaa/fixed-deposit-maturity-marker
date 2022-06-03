@@ -17,6 +17,8 @@ public class FixedDepositAccount {
     private Date fdMaturityDate;
     private int depositAmount;
     private int interestRate;
+
+    private int maturedAmount;
     private boolean matured;
 
     public FixedDepositAccount() {
@@ -25,7 +27,7 @@ public class FixedDepositAccount {
     public FixedDepositAccount(int id, String accNo, String accHolderName,
                                String fdBondNumber, Date fdStartDate,
                                Date fdMaturityDate, int depositAmount,
-                               int interestRate, boolean matured) {
+                               int interestRate, int maturedAmount, boolean matured) {
         this.id = id;
         this.accNo = accNo;
         this.accHolderName = accHolderName;
@@ -34,6 +36,7 @@ public class FixedDepositAccount {
         this.fdMaturityDate = fdMaturityDate;
         this.depositAmount = depositAmount;
         this.interestRate = interestRate;
+        this.maturedAmount = maturedAmount;
         this.matured = matured;
     }
 
@@ -101,6 +104,10 @@ public class FixedDepositAccount {
         this.interestRate = interestRate;
     }
 
+    public int getMaturedAmount() { return maturedAmount;}
+
+    public void setMaturedAmount(int maturedAmount) { this.maturedAmount = maturedAmount;}
+
     public boolean isMatured() {
         return matured;
     }
@@ -120,6 +127,7 @@ public class FixedDepositAccount {
                 ", fdMaturityDate='" + fdMaturityDate + '\'' +
                 ", depositAmount=" + depositAmount +
                 ", interestRate=" + interestRate +
+                ", maturedAmount=" + maturedAmount +
                 ", matured=" + matured +
                 '}';
     }
