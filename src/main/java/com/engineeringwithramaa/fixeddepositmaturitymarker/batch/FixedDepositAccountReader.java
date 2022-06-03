@@ -18,7 +18,7 @@ public class FixedDepositAccountReader
 
     public FixedDepositAccountReader(@Autowired DataSource dataSource) {
         setDataSource(dataSource);
-        setSql("SELECT * FROM fixed_deposit_table where matured = \"false\"");
+        setSql("SELECT * FROM `fixed_deposit_table` WHERE fdMaturityDate < CURDATE() and matured = 0;");
         setFetchSize(100);
         setRowMapper(new FixedDepositAccountRowMapper());
     }
@@ -31,8 +31,8 @@ public class FixedDepositAccountReader
             fdAccount.setAccNo(rs.getString("accNo"));
             fdAccount.setAccHolderName(rs.getString("accHolderName"));
             fdAccount.setFdBondNumber(rs.getString("fdBondNumber"));
-            fdAccount.setFdStartDate(rs.getString("fdStartDate"));
-            fdAccount.setFdMaturityDate(rs.getString("fdMaturityDate"));
+            fdAccount.setFdStartDate(rs.getDate("fdStartDate"));
+            fdAccount.setFdMaturityDate(rs.getDate("fdMaturityDate"));
             fdAccount.setDepositAmount(rs.getInt("depositAmount"));
             fdAccount.setInterestRate(rs.getInt("interestRate"));
             fdAccount.setMatured(rs.getBoolean("matured"));

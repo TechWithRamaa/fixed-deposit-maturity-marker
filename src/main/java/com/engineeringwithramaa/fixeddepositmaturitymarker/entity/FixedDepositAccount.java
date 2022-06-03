@@ -3,6 +3,7 @@ package com.engineeringwithramaa.fixeddepositmaturitymarker.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name="fixed_deposit_table")
@@ -12,8 +13,8 @@ public class FixedDepositAccount {
     private String accNo;
     private String accHolderName;
     private String fdBondNumber;
-    private String fdStartDate;
-    private String fdMaturityDate;
+    private Date fdStartDate;
+    private Date fdMaturityDate;
     private int depositAmount;
     private int interestRate;
     private boolean matured;
@@ -22,8 +23,9 @@ public class FixedDepositAccount {
     }
 
     public FixedDepositAccount(int id, String accNo, String accHolderName,
-                               String fdBondNumber, String fdStartDate, String fdMaturityDate,
-                               int depositAmount, int interestRate, boolean matured) {
+                               String fdBondNumber, Date fdStartDate,
+                               Date fdMaturityDate, int depositAmount,
+                               int interestRate, boolean matured) {
         this.id = id;
         this.accNo = accNo;
         this.accHolderName = accHolderName;
@@ -67,19 +69,19 @@ public class FixedDepositAccount {
         this.fdBondNumber = fdBondNumber;
     }
 
-    public String getFdStartDate() {
+    public Date getFdStartDate() {
         return fdStartDate;
     }
 
-    public void setFdStartDate(String fdStartDate) {
+    public void setFdStartDate(Date fdStartDate) {
         this.fdStartDate = fdStartDate;
     }
 
-    public String getFdMaturityDate() {
+    public Date getFdMaturityDate() {
         return fdMaturityDate;
     }
 
-    public void setFdMaturityDate(String fdMaturityDate) {
+    public void setFdMaturityDate(Date fdMaturityDate) {
         this.fdMaturityDate = fdMaturityDate;
     }
 
